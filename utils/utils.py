@@ -14,3 +14,17 @@ def check_path(path_to_check, this_filepath):
     this_dirpath = os.path.dirname(os.path.realpath(this_filepath))
     path = os.path.join(this_dirpath, path_to_check)
     return path
+
+
+def only_one(iterable):
+    """
+    Examples
+    --------
+    >>> only_one([False, False, False])
+    False
+    >>> only_one([False, True, False])
+    True
+    >>> only_one([True, False, True])
+    False
+    """
+    return sum(map(bool, iterable)) == 1
