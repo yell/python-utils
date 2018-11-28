@@ -26,10 +26,11 @@ def tf_jacobian(y, x):
        [ 0. 10.]]]]
     """
     y_flattened = tf.reshape(y, (-1,))
-    jacobian_flattened = [tf.gradients(y_i, x)[0] for y_i in tf.unstack(y_flattened)]
-    jacobian_flattened = tf.stack(jacobian_flattened)
-    jacobian = tf.reshape(jacobian_flattened, y.shape.concatenate(x.shape))
-    return jacobian
+    J_flattened = [tf.gradients(y_i, x)[0] for y_i in tf.unstack(y_flattened)]
+    J_flattened = tf.stack(J_flattened)
+    J_shape = y.shape.concatenate(x.shape)
+    J = tf.reshape(J_flattened, J_shape)
+    return J
 
 
 def tf_safe_add(x, y):
