@@ -3,7 +3,7 @@ TEST_LOC := 'utils/'
 
 test:
 	$(MAKE) clean
-	nosetests --config .noserc $(TEST_LOC)
+	TF_CPP_MIN_LOG_LEVEL=3 nosetests --config .noserc --nologcapture $(TEST_LOC)
 	$(MAKE) clean
 
 clean:
