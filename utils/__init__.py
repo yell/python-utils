@@ -1,3 +1,5 @@
+from tf_utils import *
+
 from array_utils import *
 from batch_utils import *
 from class_utils import *
@@ -11,5 +13,5 @@ from progress_bar import *
 from property_utils import *
 from rng import *
 from stats_utils import *
-from tf_utils import *
+from stopwatch import *
 from utils import *
