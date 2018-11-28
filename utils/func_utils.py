@@ -1,3 +1,5 @@
+from functools import wraps
+
 from iter_utils import is_iterable
 
 
@@ -21,3 +23,23 @@ def compose(*funcs):
             x = f(x)
         return x
     return composition
+
+
+def run_once(f):
+    """
+    Examples
+    --------
+    >>> @run_once
+    ... def f(): print 1
+    >>> f()
+    1
+    >>> f()
+    >>> f()
+    """
+    @wraps(f)
+    def decorated_f(*args, **kwargs):
+        if not decorated_f.has_run:
+            decorated_f.has_run = True
+            return f(*args, **kwargs)
+    decorated_f.has_run = False
+    return decorated_f
