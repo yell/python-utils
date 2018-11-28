@@ -9,4 +9,4 @@ test:
 clean:
 	find . -name '*.pyc' -type f -delete
 
-.PHONY: test clean a
+.PHONY: test clean
