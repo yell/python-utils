@@ -177,3 +177,30 @@ class ElementwiseDict(AttrDict):
         if len(args) == 2:
             return ElementwiseDict(dict_elementwise_binary(self, args[0], args[1]))
         raise ValueError
+
+
+def recursive_iter(d):
+    """
+    Parameters
+    ----------
+    d : dict
+    Examples
+    --------
+    >>> d = {'a': [1, 2, 3],
+    ...      'b': {'d': [4., 5., 6.],
+    ...            'e': {'f': [7, 8.]}},
+    ...      'c': None}
+    >>> for d_, k, v in recursive_iter(d):
+    ...     print k in d_, k, v
+    True a [1, 2, 3]
+    True c None
+    True f [7, 8.0]
+    True d [4.0, 5.0, 6.0]
+    """
+    if isinstance(d, DictionaryType):
+        for k, v in d.items():
+            if isinstance(v, DictionaryType):
+                for d_, k_, v_ in recursive_iter(v):
+                    yield d_, k_, v_
+            else:
+                yield d, k, v
