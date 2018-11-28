@@ -68,3 +68,9 @@ class RNG(np.random.RandomState):
         state = tuple(state)
         super(RNG, self).set_state(state)
         return self
+
+
+def check_random_seed(seed):
+    if seed is None:
+        seed = RNG().randint(1000, 10000)
+    return seed
