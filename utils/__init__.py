@@ -1,5 +1,3 @@
-from tf_utils import *
-
 from array_utils import *
 from batch_utils import *
 from class_utils import *
