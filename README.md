@@ -1,9 +1,9 @@
 # utils
 This repository contains:
-* [[TensorFlowModel]](utils/tf_model/tf_model.py) &mdash; class encapsulating basic TF infrastructure for executing computation, saving/restoring, and visualization
-* [[TensorFlow utils]](utils/tf_utils/)
-* [[PyTorch utils]](utils/torch_utils/)
-* [[other python utils]](utils/)
+* [`TensorFlowModel`](utils/tf_model/tf_model.py) (class encapsulating basic TF infrastructure for executing computation, saving/restoring, and visualization)
+* [TensorFlow utils](utils/tf_utils/)
+* [PyTorch utils](utils/torch_utils/)
+* [other python utils](utils/)
 
 ## How to install
 ```bash
