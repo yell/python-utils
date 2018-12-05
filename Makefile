@@ -8,6 +8,5 @@ test:
 
 clean:
 	find . -name '*.pyc' -type f -delete
-	rm -rf test_model*
 
 .PHONY: *
