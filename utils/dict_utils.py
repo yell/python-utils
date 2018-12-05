@@ -8,11 +8,12 @@ def is_dict(object_):
 
 class AttrDict(dict):
     """
-    A useful extension for dict class.
+    A dictionary that allows attribute-style access.
 
     References
     ----------
-    https://danijar.com/patterns-for-fast-prototyping-with-tensorflow/
+    * https://danijar.com/patterns-for-fast-prototyping-with-tensorflow/
+    * https://github.com/bcj/AttrDict
 
     Examples
     --------
@@ -24,6 +25,7 @@ class AttrDict(dict):
     """
     __getattr__ = dict.__getitem__
     __setattr__ = dict.__setitem__
+
 
 # aliases
 DataClass = DictClass = AttrDict
