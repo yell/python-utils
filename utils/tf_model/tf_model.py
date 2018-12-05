@@ -167,11 +167,11 @@ class TensorFlowModel(object):
             self.global_step = self.global_step_init
 
         # set summary attributes
+        self.train_summary_dirpath = os.path.join(self.model_dirpath, 'train_logs')
+        self.val_summary_dirpath = os.path.join(self.model_dirpath, 'val_logs')
         self.tf.merged_summaries = tf.summary.merge_all()
         self.tf.train_writer = None
         self.tf.val_writer = None
-        self.train_summary_dirpath = os.path.join(self.model_dirpath, 'train_logs')
-        self.val_summary_dirpath = os.path.join(self.model_dirpath, 'val_logs')
 
         # update flag
         self._finalized = True
