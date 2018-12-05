@@ -78,6 +78,16 @@ class TestTensorFlowModel(tf.test.TestCase):
         m = TestModelWithSummary(model_dirpath=self.model_dirpaths[0])
 
         assert m.tf.merged_summaries is not None
+        assert m.tf.train_writer is None
+        assert m.tf.val_writer is None
+
+        m.run_summary(train=True)
+
+        assert m.tf.train_writer is not None
+        assert m.tf.val_writer is None
+
+        m.run_summary(train=False)
+
         assert m.tf.train_writer is not None
         assert m.tf.val_writer is not None
 
@@ -250,7 +260,7 @@ class TestTensorFlowModel(tf.test.TestCase):
 
         m.run_summary(train=True)
         assert os.listdir(m.train_summary_dirpath)
-        assert not os.listdir(m.val_summary_dirpath)
+        assert not os.path.isdir(m.val_summary_dirpath)
 
         m.run_summary(train=False)
         assert os.listdir(m.val_summary_dirpath)

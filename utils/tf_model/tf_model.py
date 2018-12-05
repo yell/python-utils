@@ -166,17 +166,12 @@ class TensorFlowModel(object):
         if self.global_step_init is not None:
             self.global_step = self.global_step_init
 
-        # initialize summary writers if needed
-        self.train_summary_dirpath = os.path.join(self.model_dirpath, 'train_logs')
-        self.val_summary_dirpath = os.path.join(self.model_dirpath, 'val_logs')
-
+        # set summary attributes
         self.tf.merged_summaries = tf.summary.merge_all()
         self.tf.train_writer = None
         self.tf.val_writer = None
-
-        if self.tf.merged_summaries is not None:
-            self._check_train_writer()
-            self._check_val_writer()
+        self.train_summary_dirpath = os.path.join(self.model_dirpath, 'train_logs')
+        self.val_summary_dirpath = os.path.join(self.model_dirpath, 'val_logs')
 
         # update flag
         self._finalized = True
