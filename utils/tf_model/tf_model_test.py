@@ -2,6 +2,7 @@ import os
 from shutil import rmtree
 
 import tensorflow as tf
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
 from tf_model import TensorFlowModel
 
@@ -267,3 +268,7 @@ class TestTensorFlowModel(tf.test.TestCase):
                 rmtree(d)
             except OSError:
                 pass
+
+
+if __name__ == '__main__':
+    tf.test.main()
