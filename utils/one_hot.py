@@ -13,12 +13,15 @@ def one_hot(y, n_classes=None):
            [1., 0., 0.],
            [0., 0., 1.],
            [1., 0., 0.]])
+    >>> one_hot(0, 2)
+    array([1., 0.])
     """
+    y = np.atleast_1d(y)
     n_classes = n_classes or np.max(y) + 1
     n = len(y)
     z = np.zeros((n, n_classes))
     z[np.arange(n), y] = 1.
-    return z
+    return np.squeeze(z)
 
 
 def one_hot_decision_function(y):
