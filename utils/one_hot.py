@@ -2,7 +2,8 @@ import numpy as np
 
 
 def one_hot(y, n_classes=None):
-    """Convert `y` from {0, ..., `n_classes` - 1} to one-hot encoding.
+    """
+    Convert `y` from {0, ..., `n_classes` - 1} to one-hot encoding.
 
     Examples
     --------
