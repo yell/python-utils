@@ -70,9 +70,8 @@ def tf_carthesian_product_n(x, n):
     Examples
     --------
     >>> x = tf.constant([0., 1.])
-    >>> X = tf_carthesian_product_n(x, n=3)
     >>> with tf.Session() as sess:
-    ...     print sess.run(X)
+    ...     print sess.run(tf_carthesian_product_n(x, n=3))
     [[0. 0. 0.]
      [0. 0. 1.]
      [0. 1. 0.]
@@ -81,7 +80,16 @@ def tf_carthesian_product_n(x, n):
      [1. 0. 1.]
      [1. 1. 0.]
      [1. 1. 1.]]
+    >>> with tf.Session() as sess:
+    ...     print sess.run(tf_carthesian_product_n(x, n=1))
+    [[0.]
+     [1.]]
+    >>> with tf.Session() as sess:
+    ...     print sess.run(tf_carthesian_product_n(x, n=0))
+    []
     """
+    if n == 0:
+        return tf.zeros(shape=[1, 0], dtype=tf.float32)
     d = tf.shape(x)[0]
     values = []
     for i in xrange(n):
@@ -96,7 +104,7 @@ def tf_carthesian_product_n(x, n):
 
 def tf_matvecmul(a, b):
     """
-    Compute matrix-vector multiplication
+    Compute matrix-vector multiplication.
 
     Parameters
     ----------
