@@ -2,9 +2,9 @@ import os
 from abc import ABCMeta, abstractmethod
 from StringIO import StringIO
 
-import matplotlib; matplotlib.use('Agg'); from matplotlib.pyplot import imsave
 import numpy as np
 import tensorflow as tf
+import matplotlib; matplotlib.use('Agg'); from matplotlib.pyplot import imsave
 
 from .. import AttrDict, set_readonly_property
 

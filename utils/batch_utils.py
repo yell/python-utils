@@ -1,5 +1,5 @@
-from collections import Sequence
 from functools import partial, wraps
+from collections import Sequence
 
 import numpy as np
 

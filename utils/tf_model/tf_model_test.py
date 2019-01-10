@@ -1,8 +1,7 @@
-import os
+import os; os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 from shutil import rmtree
 
 import tensorflow as tf
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
 from tf_model import TensorFlowModel
 
