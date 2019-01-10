@@ -1,5 +1,5 @@
 MAKE := @$(MAKE) --quiet --file $(lastword $(MAKEFILE_LIST))
-TEST := utils
+TEST = utils
 
 test:
 	$(MAKE) clean
