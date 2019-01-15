@@ -19,11 +19,17 @@ class RNG(np.random.RandomState):
     0.2620246750155817
     >>> rng.rand()
     0.1586839721544656
+    >>> rng.make_seed()
+    4239
+    >>> rng.make_seed()
+    6593
     >>> _ = rng.reseed()
     >>> rng.rand()
     0.2620246750155817
     >>> rng.rand()
     0.1586839721544656
+    >>> rng.make_seed()
+    4239
     >>> _ = rng.set_state(state)
     >>> rng.rand()
     0.2620246750155817
@@ -50,6 +56,9 @@ class RNG(np.random.RandomState):
     def get_seed(self):
         return self._seed
 
+    def make_seed(self, low=1000, high=10000):
+        return self.randint(low, high)
+
     def reseed(self):
         if self._seed is not None:
             self.seed(self._seed)
@@ -72,5 +81,5 @@ class RNG(np.random.RandomState):
 
 def check_random_seed(seed):
     if seed is None:
-        seed = RNG().randint(1000, 10000)
+        seed = RNG().make_seed()
     return seed
