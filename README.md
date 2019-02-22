@@ -1,4 +1,4 @@
-# utils
+# python-utils
 This repository contains:
 * [`TensorFlowModel`](utils/tf_model/tf_model.py) (class encapsulating basic TF infrastructure for executing computation, saving/restoring, and visualization)
 * [TensorFlow utils](utils/tf_utils/)
