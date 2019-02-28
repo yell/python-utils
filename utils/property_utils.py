@@ -38,3 +38,25 @@ def lazy_property(f):
             setattr(self, attr_name, f(self))
         return getattr(self, attr_name)
     return decorated_f
+
+
+"""
+Examples
+--------
+class A(object):
+    a = make_readonly_property('a')
+    b = make_property('b')
+    ...
+    def __init__(self, ...):
+        self._a = ...
+        self._b = ...
+"""
+
+#
+# method level (self.__class__)
+#
+# and module level: after class set_property(C, 'a')
+
+"""
+set_readonly_property(A, 'a')
+"""

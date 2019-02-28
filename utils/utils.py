@@ -28,3 +28,22 @@ def only_one(iterable):
     False
     """
     return sum(map(bool, iterable)) == 1
+
+
+class Elementwise(object):  # experimental, not tested!
+    """
+    Container that respects arbitrary method calls.
+
+    T = Elementwise([T1, T2])
+    T.cuda()  # -> moves both tensors to GPU!
+    """
+    def __init__(self, sequence):
+        obj = sequence[0]
+        methods = (s for s in dir(obj) if callable(getattr(obj, s)))
+
+        for s in methods:
+            if '__' in s:
+                continue
+            def _f(*args, **kwargs):
+                return [getattr(obj, s)(*args, **kwargs) for obj in sequence]
+            setattr(self, s, _f)
