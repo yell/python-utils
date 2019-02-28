@@ -9,6 +9,7 @@ from linalg_utils import *
 from numerical_utils import *
 from one_hot import *
 from parse_utils import *
+from plot_utils import *
 from progress_bar import *
 from property_utils import *
 from rng import *
