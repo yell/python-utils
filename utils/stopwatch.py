@@ -13,7 +13,8 @@ class Stopwatch(object):
     ...     time.sleep(0.101) # doctest: +ELLIPSIS
     Elapsed time: 0.10... sec
     """
-    def __init__(self, verbose=False):
+    def __init__(self, name=None, verbose=False):
+        self._name = name
         self._verbose = verbose
 
         self._start_time_point = 0.
@@ -34,7 +35,6 @@ class Stopwatch(object):
         self.stop()
         if self._verbose:
             self._print()
-        return self._total_duration
 
     def start(self):
         if not self._is_running:
@@ -60,7 +60,8 @@ class Stopwatch(object):
         self._start_time_point = now
 
     def _print(self):
-        s = 'Elapsed time: {0:.3f} sec'.format(self._total_duration)
+        prefix = '[{}]'.format(self._name) if self._name is not None else 'Elapsed time'
+        s = '{}: {:.3f} sec'.format(prefix, self._total_duration)
         print(s)
 
     def print(self):
@@ -72,4 +73,3 @@ class Stopwatch(object):
         if self._is_running:
             self._update_state()
         return self._total_duration
-   
