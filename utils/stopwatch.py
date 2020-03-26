@@ -73,3 +73,11 @@ class Stopwatch(object):
         if self._is_running:
             self._update_state()
         return self._total_duration
+
+
+if __name__ == '__main__':
+    s = Stopwatch('example')
+    for _ in range(1000000):
+        s.start()
+        s.stop()
+    s.print()
