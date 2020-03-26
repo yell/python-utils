@@ -10,7 +10,7 @@ class Stopwatch(object):
     --------
     >>> import time
     >>> with Stopwatch(verbose=True) as s:
-    ...     time.sleep(0.101) # doctest: +ELLIPSIS
+    ...     time.sleep(0.101)  #doctest: +ELLIPSIS
     Elapsed time: 0.10... sec
     """
     def __init__(self, name=None, verbose=False):
