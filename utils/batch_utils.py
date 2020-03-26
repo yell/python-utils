@@ -6,7 +6,7 @@ import numpy as np
 
 def count_batches(n, batch_size):
     assert batch_size >= 1
-    return -(-n / batch_size)
+    return -(-n // batch_size)
 
 
 class BatchSequence(Sequence):
@@ -26,7 +26,7 @@ class BatchSequence(Sequence):
     >>> len(batch_sequence)
     3
     >>> for X_b in batch_sequence:
-    ...     print X_b
+    ...     print(X_b)
     [[ 0  1  2]
      [ 3  4  5]
      [ 6  7  8]
